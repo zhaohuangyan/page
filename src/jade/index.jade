@@ -1,0 +1,164 @@
+extends templates/master
+
+block vars
+
+block title
+  |BI
+
+block styles
+
+block content
+  div.row
+    div.col-xs-6.col-sm-2
+    div.col-xs-6.col-sm-10.BI-you
+      form.form-horizontal
+        div.form-group
+          div.col-sm-11.BI-right
+            button(type="button").btn.btn-default.BI-date 数据
+            button(type="button").btn.btn-default.BI-Chart 图表
+        div.form-group
+          lable.col-sm-1.control-label 商家:
+          div.col-sm-3
+            select.form-control
+              option 请选择
+          div.col-sm-8.BI-right
+            div.col-sm-5
+              input(type="button" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})" id="byDay" value="按日").btn.btn-default.BI-date 
+              input(type="button" value='按周' onClick="WdatePicker({lang:'zh-cn',isShowWeek:true,onpicked:function() {$dp.$('d122_1').value=$dp.cal.getP('W','W');$dp.$('d122_2').value=$dp.cal.getP('W','WW');}})").btn.btn-default.BI-btn 
+              input(type="button" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM'})" id="byMonth" value="按月").btn.btn-default.BI-Chart 
+
+            div.col-sm-6
+              form.form-inline
+                div.form-group
+                  div.input-group
+                    input(type="text" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm:ss'})").form-control
+                    div.input-group-addon to
+                    input(type="text" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm:ss'})").form-control
+      form.form-horizontal
+        div.form-group
+          lable.col-sm-1.control-label 大区:
+          div.col-sm-2
+            select.form-control
+              option 请选择
+          lable.col-sm-1.control-label 省份:
+          div.col-sm-2
+            select.form-control
+              option 请选择
+          lable.col-sm-1.control-label 城市:
+          div.col-sm-2
+            select.form-control
+              option 请选择
+      form.form-horizontal
+        div.form-group
+          lable.col-sm-1.control-label 配送站:
+          div.col-sm-2
+            select.form-control
+              option 请选择
+          lable.col-sm-1.control-label 站点属性:
+          div.col-sm-2
+            select.form-control
+              option 请选择
+      form.form-horizontal
+        div.form-group
+          lable.col-sm-1.control-label 工单类型:
+          div.col-sm-3
+            select.form-control
+              option 请选择
+              option 投诉
+              option 查询
+              option 修改备注
+              option 外呼业务
+              option 业务受理
+              option 感谢与建议
+              option 咨询
+          div.col-sm-7.BI-right
+            button(type="button").btn.btn-default 查询
+            button(type="button").btn.btn-default 数据导出
+      hr
+      div.table-responsive.BI-control
+        table.table.table-bordered
+          tr
+            td
+              |序号
+            td
+              |工单类型
+            td
+              |数量
+            td
+              |占比
+          tr
+            td
+              |0
+            td
+              |全部
+            td
+              |2758
+            td
+              |100%
+          tr
+            td
+              |1
+            td
+              |投诉
+            td
+              |1388
+            td
+              |49.87%
+          tr
+            td
+              |2
+            td
+              |查询
+            td
+              |1020
+            td
+              |36.65%
+          tr
+            td
+              |3
+            td
+              |修改备注
+            td
+              |289
+            td
+              |10.38%
+          tr
+            td
+              |4
+            td
+              |外呼业务
+            td
+              |37
+            td
+              |1.33%
+          tr
+            td
+              |5
+            td
+              |业务受理
+            td
+              |28 
+            td
+              |1.01%
+          tr
+            td
+              |6
+            td
+              |感谢与建议
+            td
+              |17
+            td
+              |0.61%
+          tr
+            td
+              |7
+            td
+              |咨询
+            td
+              |4
+            td
+              |0.14%
+
+
+
+
