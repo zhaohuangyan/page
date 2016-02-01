@@ -2,10 +2,6 @@ $(function(){
     $("[data-role='dateType']").on("click",function(){
         $("[class$='active']").removeClass("active");
         $(this).addClass("active");
-
-        var  day = new Date(2014,4,0); 
-        var daycount = day.getDate();
-        var week=daycount%4;
         
         var id=$("[class$='active']").eq(0).attr('id');
         if(id=="byDay"){
@@ -14,8 +10,8 @@ $(function(){
             $("#next").attr("onfocus","WdatePicker({isShowClear:false,isShowOK:false,minDate:'#F{$dp.$D(\\'prev\\')}',skin:'default',dateFmt:'yyyy年MM月dd日'})");
         }else if(id=="byWeek"){
             $("#inputGroup").css("display","table");
-            $("#prev").attr("onfocus","var next=$dp.$('next');WdatePicker({isShowWeek:true,isShowClear:false,isShowOK:false,onpicked:function(){next.focus();},maxDate:'#F{$dp.$D(\\'next\\')}',skin:'default',dateFmt:'yyyy年MM月dd日第ww周'})");
-            $("#next").attr("onfocus","WdatePicker({isShowClear:false,isShowOK:false,minDate:'#F{$dp.$D(\\'prev\\')}',skin:'default',dateFmt:'yyyy年MM月dd日第ww周'})");
+            $("#prev").attr("onfocus","var next=$dp.$('next');WdatePicker({skin:'default',isShowWeek:true,onpicked:function() {$dp.$('d_1').value=$dp.cal.getP('W','W')},dateFmt:'yyyy年MM月dd日第W周',isShowWeek:true,isShowClear:false,isShowOK:false,onpicked:function(){next.focus();},maxDate:'#F{$dp.$D(\\'next\\')}'})");
+            $("#next").attr("onfocus","WdatePicker({skin:'default',isShowWeek:true,onpicked:function() {$dp.$('d_1').value=$dp.cal.getP('W','W')},dateFmt:'yyyy年MM月dd日第W周',isShowClear:false,isShowOK:false,minDate:'#F{$dp.$D(\\'prev\\')}'})");
         }else{
             $("#inputGroup").css("display","table");
             $("#prev").attr("onfocus","var next=$dp.$('next');WdatePicker({isShowClear:false,isShowOK:false,quickSel:12,onpicked:function(){next.focus();},maxDate:'#F{$dp.$D(\\'next\\')}',skin:'default',dateFmt:'yyyy年MM月'})");
@@ -44,6 +40,12 @@ $(function(){
             }
         }
     })
+    var length = $('table').find('tr').length;
+    for(var i=0;i<length;i++)
+    {
+        $(".td_1").hide();
+        $(".td_2").show();
+    }
     $("#city").on("change",function(){
         var cityvalue = $("#province").val();
         var citylength = $('table').find('tr').length;
@@ -55,7 +57,81 @@ $(function(){
             }
         }
     })
-})
+    $("#shows").on("change",function(){
+        var value = $("#shows").val();
+        var lengths = $('table').find('td').length;
+        if (value==1)
+        {
+            for(var i=0;i<length;i++)
+            {
+                for(var j=0;j<lengths;j++)
+                {
+                    $("tr:eq("+i+") td:eq("+j+")").show();
+                }
+            }
+        }else if (value==2)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(8)").show();
+            }
+        }else if (value==3)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(9)").show();
+            }
+        }else if (value==4)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(10)").show();
+            }
+        }else if (value==5)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(11)").show();
+            }
+        }else if (value==6)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(12)").show();
+            }
+        }else if (value==7)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(13)").show();
+            }
+        }else if (value==8)
+        {
+            for(var i=0;i<length;i++)
+            {
+                $("tr:eq("+i+") td:eq(14)").show();
+            }
+        }
+    })
+    $('#byDay').click(function(){
+        $("#byWeek").attr("disabled","disabled")
+        $("#byMonth").attr("disabled","disabled")
+    })
+    $('#byWeek').click(function(){
+        $("#byDay").attr("disabled","disabled")
+        $("#byMonth").attr("disabled","disabled")
+    })
+    $('#byMonth').click(function(){
+        $("#byWeek").attr("disabled","disabled")
+        $("#byDay").attr("disabled","disabled")
+    })
+    $("#area_1").click(function(){
+        for(var i=0;i<length;i++)
+        {
+            $("tr:eq("+i+") td:eq(1)").show();
+        }
+    })
+})  
 
 
 

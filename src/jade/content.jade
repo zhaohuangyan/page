@@ -3,7 +3,7 @@ extends templates/master
 block vars
 
 block title
-  |BI
+  |BI page
 
 block styles
 
@@ -30,9 +30,11 @@ block content
               form.form-inline
                 div.form-group
                   div.input-group#inputGroup
-                    input(type="text" id="prev" class="form-control")
+                    input(type="text" id="prev" class="form-control BI-readonly" readonly="readonly")
                     div.input-group-addon to
-                    input(id="next" type="text" class="form-control")
+                    input(id="next" type="text" class="form-control BI-readonly" readonly="readonly")
+                    input(id="d_1" class="BI-week")
+                   
       form.form-horizontal
         div.form-group
           lable.col-sm-1.control-label 大区:
@@ -43,7 +45,7 @@ block content
               option(value="1") 华北大区
               option(value="1") 华南大区
           lable.col-sm-2.control-label 省份:
-          div.col-sm-2
+          div.col-sm-2#province_Div
             select.form-control#province
               option 请选择
               option(value="1")
@@ -81,7 +83,7 @@ block content
             button(type="button").btn.btn-default 数据导出
       hr
       div.table-responsive.BI-control
-        table.table.table-bordered
+        table.table.table-bordered.BI-table
           tr
             td.td_1
               |大区
@@ -114,7 +116,7 @@ block content
             td.td_1
               |咨询
           tr
-            td.td_1
+            td.td_1#area_1
               |大区
             td.td_1
               |省份
@@ -144,269 +146,127 @@ block content
               |感谢与建议
             td.td_1
               |咨询
-          //- tr
-          //-   td
-          //-     |1
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |1388
-          //-   td
-          //-     |49.87%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |2
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |1020
-          //-   td
-          //-     |36.65%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |3
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |289
-          //-   td
-          //-     |10.38%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |4
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |37
-          //-   td
-          //-     |1.33%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |5
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |28 
-          //-   td
-          //-     |1.01%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |6
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |17
-          //-   td
-          //-     |0.61%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-          //- tr
-          //-   td
-          //-     |7
-          //-   td
-          //-     |咨询
-          //-   td
-          //-     |4
-          //-   td
-          //-     |0.14%
-          //-   td
-          //-     |投诉
-          //-   td
-          //-     |查询
-          //-   td
-          //-     |修改备注
-          //-   td
-          //-     |外呼业务
-          //-   td
-          //-     |业务受理
-          //-   td
-          //-     |感谢与建议
-          //-   td
-          //-     |咨询
-        //- table.table.table-bordered
-        //-   tr
-        //-     td#find_2
-        //-       |投诉
-        //-     td#find_3
-        //-       |查询
-        //-     td#find_4
-        //-       |修改备注
-        //-     td#find_5
-        //-       |外呼业务
-        //-     td#find_6
-        //-       |业务受理
-        //-     td#find_7
-        //-       |感谢与建议
-        //-     td#find_8
-        //-       |咨询
-        //-   tr
-        //-     td
-        //-     td
-        //-     td
-        //-     td
-        //-     td
-        //-     td
-        //-     td
-  script.
-    $(document).ready(function(){
-      var length = $('table').find('tr').length;
-      for(var i=0;i<length;i++)
-      {
-        $(".td_1").hide();
-        $(".td_2").show();
-      }
-      $('#byDay').click(function(){
-        $("#byWeek").attr("disabled","disabled")
-        $("#byMonth").attr("disabled","disabled")
-        })
-      $('#byWeek').click(function(){
-        $("#byDay").attr("disabled","disabled")
-        $("#byMonth").attr("disabled","disabled")
-        })
-      $('#byMonth').click(function(){
-        $("#byWeek").attr("disabled","disabled")
-        $("#byDay").attr("disabled","disabled")
-        })
-      })
-    $("#shows").on("change",function(){
-      var value = $("#shows").val();
-      var length = $('table').find('tr').length;
-      var lengths = $('table').find('td').length;
-      if (value==1)
-      {
-        for(var i=0;i<length;i++)
-        {
-          for(var j=0;j<lengths;j++)
-          {
-            $("tr:eq("+i+") td:eq("+j+")").show();
-          }
-        }
-      }else if (value==2)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(8)").show();
-        }
-      }else if (value==3)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(9)").show();
-        }
-      }else if (value==4)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(10)").show();
-        }
-      }else if (value==5)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(11)").show();
-        }
-      }else if (value==6)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(12)").show();
-        }
-      }
-      else if (value==7)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(13)").show();
-        }
-      }
-      else if (value==8)
-      {
-        for(var i=0;i<length;i++)
-        {
-          $("tr:eq("+i+") td:eq(14)").show();
-        }
-      }
-      })
-
+          tr
+            td.td_1
+              |大区
+            td.td_1
+              |省份
+            td.td_1
+              |城市
+            td.td_1
+              |站区全部
+            td.td_2
+              |1
+            td.td_2
+              |投诉
+            td.td_2
+              |2758
+            td.td_2
+              |占比
+            td.td_1#complaint
+              |投诉
+            td.td_1
+              |查询
+            td.td_1
+              |修改备注
+            td.td_1
+              |外呼业务
+            td.td_1
+              |业务受理
+            td.td_1
+              |感谢与建议
+            td.td_1
+              |咨询
+          tr
+            td.td_1
+              |大区
+            td.td_1
+              |省份
+            td.td_1
+              |城市
+            td.td_1
+              |站区全部
+            td.td_2
+              |1
+            td.td_2
+              |投诉
+            td.td_2
+              |2758
+            td.td_2
+              |占比
+            td.td_1#complaint
+              |投诉
+            td.td_1
+              |查询
+            td.td_1
+              |修改备注
+            td.td_1
+              |外呼业务
+            td.td_1
+              |业务受理
+            td.td_1
+              |感谢与建议
+            td.td_1
+              |咨询
+          tr
+            td.td_1
+              |大区
+            td.td_1
+              |省份
+            td.td_1
+              |城市
+            td.td_1
+              |站区全部
+            td.td_2
+              |1
+            td.td_2
+              |投诉
+            td.td_2
+              |2758
+            td.td_2
+              |占比
+            td.td_1#complaint
+              |投诉
+            td.td_1
+              |查询
+            td.td_1
+              |修改备注
+            td.td_1
+              |外呼业务
+            td.td_1
+              |业务受理
+            td.td_1
+              |感谢与建议
+            td.td_1
+              |咨询
+          tr
+            td.td_1
+              |大区
+            td.td_1
+              |省份
+            td.td_1
+              |城市
+            td.td_1
+              |站区全部
+            td.td_2
+              |1
+            td.td_2
+              |投诉
+            td.td_2
+              |2758
+            td.td_2
+              |占比
+            td.td_1#complaint
+              |投诉
+            td.td_1
+              |查询
+            td.td_1
+              |修改备注
+            td.td_1
+              |外呼业务
+            td.td_1
+              |业务受理
+            td.td_1
+              |感谢与建议
+            td.td_1
+              |咨询

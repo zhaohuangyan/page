@@ -23,17 +23,17 @@ block content
               option 请选择
           div.col-sm-8.BI-right
             div.col-sm-5
-              input(type="button" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})" id="byDay" value="按日").btn.btn-default.BI-date 
-              input(type="button" value='按周' onClick="WdatePicker({lang:'zh-cn',isShowWeek:true,onpicked:function() {$dp.$('d122_1').value=$dp.cal.getP('W','W');$dp.$('d122_2').value=$dp.cal.getP('W','WW');}})").btn.btn-default.BI-btn 
-              input(type="button" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM'})" id="byMonth" value="按月").btn.btn-default.BI-Chart 
-
+              input(type="button" data-role="dateType" id="byDay" value="按日" class="btn btn-default BI-date")
+              input(type="button" data-role="dateType" id="byWeek" value="按周" class="btn btn-default BI-btn")
+              input(type="button" data-role="dateType" id="byMonth" value="按月" class="btn btn-default BI-Chart")
             div.col-sm-6
               form.form-inline
                 div.form-group
-                  div.input-group
-                    input(type="text" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm:ss'})").form-control
+                  div.input-group#inputGroup
+                    input(type="text" id="prev" class="form-control BI-readonly" readonly="readonly")
                     div.input-group-addon to
-                    input(type="text" onClick="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm:ss'})").form-control
+                    input(id="next" type="text" class="form-control BI-readonly" readonly="readonly")
+                    input(id="d_1" class="BI-week")
       form.form-horizontal
         div.form-group
           lable.col-sm-1.control-label 大区:
